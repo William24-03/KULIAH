@@ -3,3 +3,4 @@ void main() {
   double lebar = 5;
   print(lebar * panjang);
 }
+ 
