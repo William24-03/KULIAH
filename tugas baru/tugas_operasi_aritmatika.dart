@@ -6,7 +6,6 @@ void main() {
   while (lanjut) {
     print("\n=== Kalkulator Sederhana ===");
 
-    // Input angka dulu
     stdout.write("Masukkan angka pertama: ");
     double? angka1 = double.tryParse(stdin.readLineSync() ?? '');
     stdout.write("Masukkan angka kedua: ");
@@ -17,7 +16,6 @@ void main() {
       continue;
     }
 
-    // Baru pilih operasi
     print("\nPilih operasi yang ingin digunakan:");
     print("1. Penjumlahan");
     print("2. Pengurangan");
@@ -46,8 +44,6 @@ void main() {
       default:
         print("Pilihan tidak valid!");
     }
-
-    // Tanya mau lanjut atau tidak
     stdout.write("\nApakah ingin melanjutkan? (y/n): ");
     String? jawaban = stdin.readLineSync();
     if (jawaban == null || jawaban.toLowerCase() != 'y') {
