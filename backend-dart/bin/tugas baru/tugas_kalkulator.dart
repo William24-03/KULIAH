@@ -1,54 +1,42 @@
 import 'dart:io';
 
+double tambah(double a, double b) => a + b;
+double kurang(double a, double b) => a - b;
+double kali(double a, double b) => a * b;
+double bagi(double a, double b) => a / b;
+
 void main() {
-  bool lanjut = true;
+  print("Masukkan angka pertama: ");
+  double a = double.parse(stdin.readLineSync()!);
 
-  while (lanjut) {
-    print("\n=== Kalkulator Sederhana ===");
+  print("Masukkan angka kedua: ");
+  double b = double.parse(stdin.readLineSync()!);
 
-    stdout.write("Masukkan angka pertama: ");
-    double? angka1 = double.tryParse(stdin.readLineSync() ?? '');
-    stdout.write("Masukkan angka kedua: ");
-    double? angka2 = double.tryParse(stdin.readLineSync() ?? '');
+  print("\nPilih operasi:");
+  print("1. Penjumlahan");
+  print("2. Pengurangan");
+  print("3. Perkalian");
+  print("4. Pembagian");
+  String pilihan = stdin.readLineSync()!;
 
-    if (angka1 == null || angka2 == null) {
-      print("Input angka tidak valid!");
-      continue;
-    }
-
-    print("\nPilih operasi yang ingin digunakan:");
-    print("1. Penjumlahan");
-    print("2. Pengurangan");
-    print("3. Perkalian");
-    print("4. Pembagian");
-    stdout.write("Pilih operasi (1-4): ");
-    String? pilihan = stdin.readLineSync();
-
-    switch (pilihan) {
-      case '1':
-        print("Hasil penjumlahan = ${angka1 + angka2}");
-        break;
-      case '2':
-        print("Hasil pengurangan = ${angka1 - angka2}");
-        break;
-      case '3':
-        print("Hasil perkalian = ${angka1 * angka2}");
-        break;
-      case '4':
-        if (angka2 != 0) {
-          print("Hasil pembagian = ${angka1 / angka2}");
-        } else {
-          print("Error: Pembagian dengan nol tidak diperbolehkan!");
-        }
-        break;
-      default:
-        print("Pilihan tidak valid!");
-    }
-    stdout.write("\nApakah ingin melanjutkan? (y/n): ");
-    String? jawaban = stdin.readLineSync();
-    if (jawaban == null || jawaban.toLowerCase() != 'y') {
-      lanjut = false;
-      print("Program selesai. Terima kasih!");
-    }
+  switch (pilihan) {
+    case '1':
+      print("Hasil = ${tambah(a, b)}");
+      break;
+    case '2':
+      print("Hasil = ${kurang(a, b)}");
+      break;
+    case '3':
+      print("Hasil = ${kali(a, b)}");
+      break;
+    case '4':
+      if (b != 0) {
+        print("Hasil = ${bagi(a, b)}");
+      } else {
+        print("Error: Tidak bisa dibagi nol");
+      }
+      break;
+    default:
+      print("Pilihan tidak valid!");
   }
 }
